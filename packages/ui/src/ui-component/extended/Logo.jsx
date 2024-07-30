@@ -11,9 +11,9 @@ const Logo = () => {
     return (
         <div style={{ alignItems: 'center', display: 'flex', flexDirection: 'row' }}>
             <img
-                style={{ objectFit: 'contain', height: 'auto', width: 150 }}
+                style={{ objectFit: 'contain', height: 'auto', width: 150 , padding: '27px 16px'}}
                 src={customization.isDarkMode ? logoDark : logo}
-                alt='Flowise'
+                alt='Builder AI'
             />
         </div>
     )

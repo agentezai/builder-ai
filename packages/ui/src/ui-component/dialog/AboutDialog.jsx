@@ -23,20 +23,7 @@ const AboutDialog = ({ show, onCancel }) => {
                     password
                 }
             }
-            const latestReleaseReq = axios.get('https://api.github.com/repos/FlowiseAI/Flowise/releases/latest')
-            const currentVersionReq = axios.get(`${baseURL}/api/v1/version`, { ...config })
-
-            Promise.all([latestReleaseReq, currentVersionReq])
-                .then(([latestReleaseData, currentVersionData]) => {
-                    const finalData = {
-                        ...latestReleaseData.data,
-                        currentVersion: currentVersionData.data.version
-                    }
-                    setData(finalData)
-                })
-                .catch((error) => {
-                    console.error('Error fetching data:', error)
-                })
+            
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,7 +39,7 @@ const AboutDialog = ({ show, onCancel }) => {
             aria-describedby='alert-dialog-description'
         >
             <DialogTitle sx={{ fontSize: '1rem' }} id='alert-dialog-title'>
-                Flowise Version
+                Builder AI Version
             </DialogTitle>
             <DialogContent>
                 {data && (
@@ -68,11 +55,11 @@ const AboutDialog = ({ show, onCancel }) => {
                             <TableBody>
                                 <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                     <TableCell component='th' scope='row'>
-                                        {data.currentVersion}
+                                        {'2.0.1'}
                                     </TableCell>
                                     <TableCell component='th' scope='row'>
                                         <a target='_blank' rel='noreferrer' href={data.html_url}>
-                                            {data.name}
+                                            {'builder-ai@2.0.1'}
                                         </a>
                                     </TableCell>
                                     <TableCell>{moment(data.published_at).fromNow()}</TableCell>
